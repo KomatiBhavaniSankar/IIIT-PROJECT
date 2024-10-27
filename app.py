@@ -3,6 +3,7 @@ from tensorflow import keras
 from tensorflow.keras.models import load_model
 import streamlit as st
 import numpy as np
+import requests
 
 # Streamlit header
 st.header('Image Classification Model')
@@ -34,3 +35,40 @@ if uploaded_image is not None:
     st.image(uploaded_image, width=200)
     st.write('The image is classified as: ' + data_cat[np.argmax(score)])
     st.write('Confidence: {:.2f}%'.format(np.max(score) * 100))
+
+
+
+
+
+# OpenWeather API key
+API_KEY = "http://api.openweathermap.org/data/2.5/weather?q=' + city + '&units=metric&appid=dfeadd6fc205a9878413ed61ace9e1cf"
+
+# Function to get weather data
+def get_weather(city):
+    url = f"http://api.openweathermap.org/data/2.5/weather?q={city}&appid={API_KEY}&units=metric"
+    response = requests.get(url)
+    if response.status_code == 200:
+        data = response.json()
+        return {
+            "city": data["name"],
+            "temperature": data["main"]["temp"],
+            "description": data["weather"][0]["description"],
+            "humidity": data["main"]["humidity"],
+            "wind_speed": data["wind"]["speed"],
+        }
+    else:
+        st.error("City not found or API limit reached.")
+        return None
+
+# Streamlit app layout
+st.title("Weather App")
+city = st.text_input("Enter a city name", "New York")
+
+if st.button("Get Weather"):
+    weather = get_weather(city)
+    if weather:
+        st.write(f"**City:** {weather['city']}")
+        st.write(f"**Temperature:** {weather['temperature']} °C")
+        st.write(f"**Description:** {weather['description']}")
+        st.write(f"**Humidity:** {weather['humidity']} %")
+        st.write(f"**Wind Speed:** {weather['wind_speed']} m/s")
