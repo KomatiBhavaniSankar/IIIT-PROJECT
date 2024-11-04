@@ -4,11 +4,11 @@
 
 # 🌍 Natural Disasters Prediction Web App
 
-An interactive web application for predicting and monitoring natural disasters using machine learning and real-time weather data. Built with Streamlit as the front end, the app utilizes a deep learning model to classify images of disasters and integrates real-time weather information using the OpenWeatherMap API. Users can upload images of disasters for classification and access live weather data.
+An interactive web application for predicting and monitoring natural disasters using machine learning and real-time weather data. Built with Streamlit as the front end, the app uses a deep learning model to classify satellite images of disasters and integrates real-time weather information from the OpenWeatherMap API. Users can upload satellite images of disasters for classification and access live weather data.
 
 ## 🔥 Features
 
-- **Disaster Image Classification**: Classifies natural disasters from images, including floods, hurricanes, volcanic eruptions, and wildfires, using a TensorFlow/Keras deep learning model.
+- **Satellite Image Classification**: Classifies natural disasters from satellite images, including floods, hurricanes, volcanic eruptions, and wildfires, using a TensorFlow/Keras deep learning model.
 - **Real-Time Weather Data**: Retrieves live weather information such as temperature, humidity, wind speed, and general conditions based on user-provided city names via the OpenWeatherMap API.
 - **User Session Management**: Utilizes Streamlit's Session State to manage user sessions within the app.
 
@@ -20,7 +20,7 @@ An interactive web application for predicting and monitoring natural disasters u
 
 ### Back-End
 
-- **TensorFlow & Keras**: Used to build and train a deep learning image classification model to identify disaster types.
+- **TensorFlow & Keras**: Used to build and train a deep learning image classification model to identify disaster types from satellite images.
 - **OpenWeatherMap API**: Supplies real-time weather data based on user-input city names.
 
 ### Libraries and Tools
@@ -85,7 +85,7 @@ Open a browser and go to `http://localhost:8501` to interact with the applicatio
 ## 🖥️ Project Structure
 
 - **`app.py`**: Main application file that handles routing and integrates all functionalities.
-- **`model/`**: Contains the pre-trained TensorFlow/Keras model for disaster classification.
+- **`model/`**: Contains the pre-trained TensorFlow/Keras model for satellite image classification.
 - **`utils/`**: Helper functions for API requests, image processing, and model prediction.
 - **`requirements.txt`**: Lists all dependencies required to run the application.
 
@@ -93,13 +93,13 @@ Open a browser and go to `http://localhost:8501` to interact with the applicatio
 
 ### 1. Disaster Classification
 
-Users can upload an image of a natural disaster, and the model will classify it into one of four categories:
+Users can upload a satellite image of a natural disaster, and the model will classify it into one of four categories:
    - Flood
    - Hurricane
    - Volcanic Eruption
    - Wildfire
 
-   The classification is handled by a Convolutional Neural Network (CNN) trained with TensorFlow and Keras.
+   The classification is handled by a Convolutional Neural Network (CNN) trained with TensorFlow and Keras, using satellite images to ensure accuracy.
 
 ### 2. Real-Time Weather Data
 
@@ -125,7 +125,7 @@ Contributions are welcome! If you want to contribute:
 
 ## 📜 License
 
-This project is licensed under the MIT License.
+This project is licensed under the MIT License. 
 
 ## ✨ Acknowledgments
 
@@ -133,4 +133,3 @@ This project is licensed under the MIT License.
 - **TensorFlow & Keras** for powering the image classification model.
 
 ---
-
