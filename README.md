@@ -1,4 +1,4 @@
-Here’s an updated README without the Twilio SMS alert section:
+
 
 ---
 
@@ -134,4 +134,3 @@ This project is licensed under the MIT License.
 
 ---
 
-Let me know if you need any more modifications!
